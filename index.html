@@ -34,7 +34,7 @@
   <div id="toast" class="toast" hidden></div>
   <script>
     const KEY='safe-report-queue-v1', INVALID_KEY='safe-report-invalid-v1', THEME_KEY='srq-theme', BASE='https://safebrowsing.google.com/safebrowsing/report_phish/?hl=id&url=';
-    let items=[],invalidItems=[],extensionReady=false,description=localStorage.getItem('srq-description')||'SCAM AND GAMBLE';try{items=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}try{invalidItems=JSON.parse(localStorage.getItem(INVALID_KEY)||'[]')}catch(e){}
+    let items=[],invalidItems=[],extensionReady=false,description=localStorage.getItem('srq-description')||'Situs ini diduga melakukan phishing atau penipuan dengan menyamar sebagai layanan resmi untuk mencuri data pribadi, kredensial akun, atau informasi keuangan pengguna. Mohon ditinjau dan ditindaklanjuti.';try{items=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}try{invalidItems=JSON.parse(localStorage.getItem(INVALID_KEY)||'[]')}catch(e){}
     const $=s=>document.querySelector(s), esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     function syncThemeButton(){let dark=document.documentElement.dataset.theme==='dark',icon=$('#themeIcon'),label=$('#themeLabel'),button=$('#themeToggle');if(icon)icon.textContent=dark?'☀':'☾';if(label)label.textContent=dark?'Mode terang':'Mode gelap';if(button){button.title=dark?'Gunakan mode terang':'Gunakan mode gelap';button.setAttribute('aria-pressed',String(dark))}}
     function setTheme(theme){document.documentElement.dataset.theme=theme;localStorage.setItem(THEME_KEY,theme);syncThemeButton()}
